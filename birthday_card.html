@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .card {
+            width: 640px;
+            height: 400px;
+            position: absolute;
+            /* background-color: white; */
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            transition: 1s;
+            
+            /* -webkit-perspective: 1200px;
+             perspective: 1200px; */
+           
+        }
+
+        /* .outside{background-color: yellow;} */
+        /* .inside{background-color: burlywood;} */
+        .outside,
+        .inside {
+
+            height: 100%;
+            width: 50%;
+            position: absolute;
+            left: 50%;
+            box-shadow: 5px 5px 10px 12px grey;
+        }
+
+        .inside {
+            background: linear-gradient(to right, rgb(217, 213, 213), white);
+            line-height: 3;
+            padding: 0 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            left: 50%;
+        }
+            .card:hover{
+                transform: rotate(-6deg);
+                
+               
+            }
+            .card:hover .outside{
+                transform: rotateY(-140deg);
+                
+            
+            }
+            
+        
+        .outside {
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            z-index: 1;
+            transform-origin: left;
+            transition: 2s;
+            
+        }
+
+        /* .back{background-color: aqua;} */
+        .front,
+        .back {
+            height: 100%;
+            width: 100%;
+            /* background-color: aqua; */
+            position: absolute;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transform: rotateX(0deg);
+           
+        }
+
+        .front {
+            background-color: crimson;
+            color: black;
+        }
+
+        .back {
+            transform: rotateY(180deg);
+            background-color: white;
+            /* background-color: to left, rgb(217, 213, 213), white; */
+        }
+
+        .cake {
+            width: 100%;
+            /* height: 30px; */
+            position: absolute;
+            /* background-color: red; */
+            bottom: 30px;
+            /* top: 100px; */
+        }
+
+        .top_layer,
+        .middle_layer,
+        .bottom_layer {
+            height: 80px;
+            width: 250px;
+            background-size: 60px 100px;
+            /* background-color: yellow; */
+            background-image: linear-gradient(transparent 50px, #fedbab 50px,
+                    #fedbab 60px,
+                    transparent 60px), radial-gradient(circle at 30px 5px, brown 30px, yellow 32px);
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            background-position: 28px 0;
+            margin: auto;
+        }
+
+        .top_layer {
+            top: 26px;
+            transform: scale(0.7);
+        }
+
+        .middle_layer {
+            top: 6px;
+            transform: scale(0.87);
+        }
+
+        /* .bottom_layer{top: 1px;} */
+        .candle {
+            height: 45px;
+            width: 15px;
+            background-color: red;
+            background-image: repeating-linear-gradient(45deg,
+                    #fd3018 0,
+                    #fd3018 5px,
+                    #ffa89e 5px,
+                    #ffa89e 10px);
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            bottom: 203px;
+        }
+
+        .candle::before {
+            content: '';
+            position: absolute;
+            height: 16px;
+            width: 16px;
+            background-color: #ffa500;
+            border-radius: 0 50% 50% 50%;
+            bottom: 48px;
+            left: 0px;
+            transform: rotate(45deg);
+        }
+
+        .outside p {
+            font-size: 23px;
+            text-transform: uppercase;
+            margin-top: 30px;
+            text-align: center;
+            letter-spacing: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="outside">
+            <div class="front">
+                <p>Happy Birthday</p>
+                <div class="cake">
+                    <div class="top_layer"></div>
+                    <div class="middle_layer"></div>
+                    <div class="bottom_layer"></div>
+                    <div class="candle"></div>
+                </div>
+            </div>
+            <div class="back"></div>
+        </div>
+        <div class="inside">
+            <p>Wishing you a very happy birthday</p>
+            <h1>&#127873</h1>
+            <!-- <h1>🎁</h1> -->
+        </div>
+    </div>
+</body>
+
+</html>
